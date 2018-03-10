@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+* {
+  box-sizing: border-box; }
+
+@keyframes circle {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+ol, ul {
+  list-style: none; }
+
+div.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%; }
+  div.app div.logo {
+    position: relative; }
+    div.app div.logo div.wangyilogo {
+      display: flex;
+      width: 4.83092rem;
+      height: 0.82126rem;
+      background: url(../../img/wangyilogo.png);
+      background-size: 4.83092rem auto;
+      margin-left: 0.48309rem;
+      margin-top: 0.57971rem; }
+    div.app div.logo img.pointer {
+      position: absolute;
+      left: 45%;
+      top: 0;
+      width: 5.21739rem;
+      z-index: 2; }
+  div.app div.songdiscwp {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    div.app div.songdiscwp div.songdisc {
+      position: relative;
+      width: 16.52174rem;
+      height: 16.52174rem; }
+      div.app div.songdiscwp div.songdisc img {
+        position: absolute;
+        top: 0;
+        width: 16.52174rem;
+        height: 16.52174rem; }
+      div.app div.songdiscwp div.songdisc img.cover {
+        top: 50%;
+        left: 50%;
+        margin-top: -5.21739rem;
+        margin-left: -5.21739rem;
+        border-radius: 50%;
+        width: 10.43478rem;
+        height: 10.43478rem;
+        animation: circle 20s infinite linear;
+        animation-play-state: paused; }
+      div.app div.songdiscwp div.songdisc img.cover.playing {
+        animation-play-state: running; }
+  div.app div.songinfo {
+    margin-top: 1.20773rem;
+    width: 100%;
+    height: 5.84541rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center; }
+    div.app div.songinfo h2 {
+      font-size: 0.96618rem;
+      line-height: 0.96618rem;
+      margin-bottom: 10px; }
+      div.app div.songinfo h2 span {
+        font-size: 16px;
+        color: #fefefe; }
+      div.app div.songinfo h2 span.title {
+        font-size: 0.86957rem;
+        line-height: 0.96618rem;
+        font-weight: 600; }
+      div.app div.songinfo h2 span.artist {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.77295rem;
+        line-height: 0.96618rem;
+        font-weight: 400; }
+    div.app div.songinfo div.lrcwp {
+      height: 5.84541rem;
+      display: flex;
+      justify-content: center;
+      overflow: hidden; }
+      div.app div.songinfo div.lrcwp div.lrc {
+        width: 16.61836rem;
+        height: inherit; }
+        div.app div.songinfo div.lrcwp div.lrc p {
+          color: rgba(255, 255, 255, 0.6);
+          font-size: 0.77295rem;
+          padding-bottom: 0.28986rem;
+          padding-top: 0.19324rem; }
+          div.app div.songinfo div.lrcwp div.lrc p.active {
+            color: #fff; }
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: transparent url(http://p3.music.126.net/z4p2xss2a50qNHe6TLFdoA==/2425522650910827.jpg) no-repeat center;
+  background-size: cover; }

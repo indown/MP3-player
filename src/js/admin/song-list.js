@@ -1,0 +1,126 @@
+{
+    let view = {
+        el:'.musicDataList',
+        template:`
+        <ul class='songList'></ul>
+        `,
+        render(data){
+            let $el = $(this.el)
+            $el.html(this.template)
+            let minutes
+            let seconds
+            let {songs,id} = data
+            
+            let liList = songs.map((song)=>{
+                let $li = $(`<li><span class="album"></span><span class="title">
+                </span><span class="artist"></span><span class="allTime">
+                </span></li>`).attr('data-song-id', song.id)
+                $li.find('.album').text(song.album)
+                $li.find('.title').text(song.title)
+                $li.find('.artist').text(song.artist)
+                if(Math.floor(Math.floor(song.allTime/60)/10)>0){
+                    minutes =  Math.floor(song.allTime/60)
+                    
+                }else {
+                    minutes = '0'+ Math.floor(song.allTime/60)
+                }
+                if(Math.floor(Math.floor(song.allTime%60)/10)>0){
+                    seconds = Math.floor(song.allTime%60)
+                }else{
+                    seconds = '0'+Math.floor(song.allTime%60)
+                }
+    
+                $li.find('.allTime').text(minutes+':'+seconds)
+                return $li
+            })
+            
+            $el.find('ul').empty()
+            liList.map((domLi)=>{
+            $el.find('ul').append(domLi)
+            })
+        },
+        active(data){
+            $(data).addClass('active').siblings().removeClass('active')
+        }
+    }
+    let model = {
+       data : {
+        songs:[],
+        selectSongId: undefined,
+       },
+       update(){
+       
+       },
+       find(){
+        var query = new AV.Query('MP3');
+        return query.find().then((songs)=>{
+          this.data.songs = songs.map((song)=>{
+            return {id: song.id, ...song.attributes}
+          })
+          return songs
+        })
+      }
+       
+       
+    }
+    let controller = {
+        init(view,model){
+            this.view = view
+            this.model = model
+            this.model.update()
+            this.avinit()
+            this.getAllSongs()
+            window.eventHub.on('create',(data)=>{
+                console.log(data)
+                this.model.data.songs.push(data)
+                this.view.render(this.model.data)
+            })
+            window.eventHub.on('update',(song)=>{
+                let songs = this.model.data.songs
+                for(let i = 0; i<songs.length;i++){
+                    if(songs[i].id === song.id){
+                        Object.assign(songs[i],song)
+                    }
+                    this.view.render(this.model.data)
+                }
+            })
+            this.bindEvents()
+            
+            
+        },
+        avinit(){
+            var APP_ID = 'G5yOdsGmxXUewCPn0L07q2OM-gzGzoHsz';
+            var APP_KEY = 'iOivIiSOU4ensUM1lO9xw4Op';
+
+            AV.init({
+                appId: APP_ID,
+                appKey: APP_KEY
+            });
+        },
+        getAllSongs(){
+            return this.model.find().then(()=>{
+                console.log(this.model.data)
+              this.view.render(this.model.data)
+            })
+        },
+        bindEvents(){
+            $(this.view.el).on('click','li',(e)=>{
+                let songId = e.currentTarget.getAttribute('data-song-id')
+                this.view.active(e.currentTarget)
+                this.model.data.selectSongId = songId;
+                let data 
+                let songs = this.model.data.songs
+               
+                for(let i = 0;i<songs.length;i++){
+                    if(songs[i].id === songId){
+                        data = songs[i]
+                        break
+                    }
+                }
+                console.log(data)
+                window.eventHub.emit('select', JSON.parse(JSON.stringify(data)))
+            })
+        }
+    }
+    controller.init(view,model)
+}

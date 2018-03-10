@@ -1,0 +1,135 @@
+@function px( $px ){
+    @return $px/$designWidth*20 + rem;
+  }
+  $designWidth : 414;
+*{
+    margin: 0;
+    padding: 0;
+}
+*{
+    box-sizing: border-box;
+}
+@keyframes circle{
+    0% {transform: rotate(0deg); } 
+    100% {transform: rotate(360deg); } 
+  }
+ol,ul{
+    list-style: none;
+}
+div.app{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+    div.logo{
+        position: relative;
+        div.wangyilogo{
+            display: flex;
+            width: px(100);
+            height: px(17);
+            background: url(../../img/wangyilogo.png);
+            background-size: px(100) auto;
+            margin-left: px(10);
+            margin-top: px(12);
+        }
+        img.pointer{
+            position: absolute;
+            left: 45%;
+            top: 0;
+            width: px(108);
+            z-index: 2;
+        }
+
+    }
+    div.songdiscwp{
+        margin-top: 50px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+        div.songdisc{
+            position: relative;
+            width: px(342);
+            height: px(342);
+            img{
+                position: absolute;
+                top: 0;
+                width: px(342);
+                height: px(342);
+            }
+            img.cover{
+                top: 50%;
+                left: 50%;
+                margin-top: -(px(108));
+                margin-left: -(px(108));
+                border-radius: 50%;
+                width: px(216);
+                height: px(216);
+                animation: circle 20s infinite linear; 
+                animation-play-state: paused;
+            }
+            img.cover.playing{
+                animation-play-state: running;
+            }
+        }
+    }
+    div.songinfo{
+        margin-top: px(25);
+        width: 100%;
+        height: px(121);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        h2{
+            font-size: px(20);
+            line-height: px(20);
+            margin-bottom: 10px;
+            span{
+                font-size: 16px;
+                color: #fefefe;
+            }
+            span.title{
+                font-size: px(18);
+                line-height: px(20);
+                font-weight: 600;
+            }
+            span.artist{
+                color: hsla(0,0%,100%,.6);
+                font-size: px(16);
+                line-height: px(20);
+                font-weight: 400;
+            }
+        }
+        div.lrcwp{
+            
+            height: px(121);
+            display: flex;
+            justify-content: center;
+            overflow: hidden;
+            
+            div.lrc{
+                width: px(344);
+                height: inherit;
+                
+                p{
+                    color: hsla(0,0%,100%,.6);
+                    font-size: px(16);
+                    padding-bottom: px(6);
+                    padding-top: px(4);
+                    &.active{
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+   
+}
+.page{display: flex; 
+    flex-direction: column; 
+    height: 100vh;
+	background: transparent url(http://p3.music.126.net/z4p2xss2a50qNHe6TLFdoA==/2425522650910827.jpg) no-repeat center;
+    background-size: cover;
+    
+}

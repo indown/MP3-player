@@ -1,0 +1,238 @@
+@function px( $px ){
+    @return $px/$designWidth*20 + rem;
+  }
+  
+  $designWidth : 414;
+*{
+    padding: 0;
+    margin: 0;
+}
+ol,ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color:#000;
+}
+*{
+    box-sizing: border-box;
+}
+body{
+  font-size: 16px;
+  div.m-home{
+    width: 100%;
+    height: 900px;
+    div.fixtop{
+        position: fixed;
+        top: 0;
+        div.topfix{
+            background: #d43c33;
+            width: 100%;
+            height: px(64);
+            display: flex;
+            position: relative;
+            div.toplogo{
+              width: px(142);
+              height: px(27);
+              font-size: px(22);
+              color: #fff;
+              font-family: "STSong";
+              line-height: 27px;
+              text-align: right;
+              margin-top: px(19);
+              margin-left: px(8);
+              font-family: Helvetica, sans-serif;
+              display: flex;
+              justify-content: space-around;
+                svg{
+                    width: px(140);
+                }
+                svg.sq{
+                    width: 4.2vw;
+                    height: 4.2vw;
+                    margin-right: 0.5em;
+                    fill: #FE672E;
+                }
+                svg.play{
+                    width: 5.9vw;
+                    height: 5.9vw;
+                    position: absolute;
+                    right: 4vw;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    fill:#AAAAAA;
+                }
+            
+              
+            }
+            div.download{
+              width: px(80);
+              height: px(30);
+              border: 1px solid #e27d77;
+              color: #FFF;
+              font-family: Helvetica, sans-serif;
+              font-size: px(15);
+              line-height: px(30);
+              text-align: center;
+              border-radius: 37.5%/100%;
+              position: absolute;
+              right: px(11);
+              top: px(17);
+            }
+        }
+    } 
+    nav{
+        width: 100%;
+        height: px(40);
+        border-bottom: 1px solid #f2f2f2;
+        ul.navlist{
+            display: flex;
+            justify-content: space-around;
+            height: 100%;
+            li{
+                width: px(138);
+                height:100%;
+                display: flex;
+                justify-content: center;
+                a{
+                    height: px(40);
+                  text-align: center;
+                  line-height: px(40);
+                  font-size: px(15);
+                  padding-left: px(4);
+                  padding-right: px(4);
+                  &:hover{
+                      border-bottom: 2px solid #d33a31;
+                  }
+                }
+            }
+        }
+    }
+    div.recomlist{
+        margin-top: px(123);
+        h2{
+            font-size: px(17);
+            font-weight: normal;
+            line-height: px(20);
+            margin-bottom: px(15);
+            position: relative;
+            padding-left: px(8);
+            
+            &::after{
+                content: "";
+                position: absolute;
+                width: px(2);
+                height: px(16);
+                background: #d33a31;
+                top: 50%;
+                width: px(2);
+                left: 0;
+                margin-top: px(-9);
+            }
+        }
+        ol.recomol{
+            
+            display: flex;
+            justify-content: space-between;
+            width: px(414);
+            flex-wrap: wrap;
+            li{
+
+                a{
+                    display: inline-block;
+                    img{
+                        width: px(136);
+                        height: px(136);
+                    }
+                }
+                p{
+                    font-size: px(13);
+                    font-family: Helvetica, sans-serif;
+                    white-space: pre-wrap;
+                    padding: px(0) px(4) px(18) px(6);
+                    width: px(136);
+                }
+            }
+        }
+    }
+    div.newsong{
+        margin-top: px(16);
+        h2{
+            font-size: px(17);
+            font-weight: normal;
+            line-height: px(20);
+            margin-bottom: px(15);
+            position: relative;
+            padding-left: px(8);
+            
+            &::after{
+                content: "";
+                position: absolute;
+                width: px(2);
+                height: px(16);
+                background: #d33a31;
+                top: 50%;
+                width: px(2);
+                left: 0;
+                margin-top: px(-9);
+            }
+        }
+        div.newsongslist{
+           ul.songslist{
+               a{
+                   display: flex;
+                   flex-wrap: nowrap;
+                   flex-direction: row;
+                   justify-content: space-between;
+                   border-bottom: 1px solid #f6f6f7;
+                   padding: px(5) 0 px(5) 0 ;
+                   margin: 0 px(10) 0 px(10) ;
+                   div.songinfo{
+                       display: flex;
+                       flex-direction: column;
+                       div.title{
+                           font-size: px(17);
+                           line-height: px(25);
+                       }
+                       div.artist{
+                           display: flex;
+                           flex-direction: row;
+                           font-size: px(12);
+                           line-height: px(18);
+                           div.sqwarper{
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                height: inherit;
+                                div.sq{
+                                    width: 12px;
+                                    height: 8px;
+                                    background:url(../img/index_icon_3x.png) no-repeat 0px 0px;
+                                    background-size: 166px 97px;
+                                    }
+                            }
+                            p{
+                                padding-left: px(4);
+                            }
+                       }
+                    }
+                    div.playbtnwarper{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        height: inherit;
+                        div.playbtn{
+                            width: 22px;
+                            height: 22px;
+                            background: url(../img/index_icon_3x.png) no-repeat -24px 0;
+                            background-size: 166px 97px;
+                        }
+                        
+                    }
+               }
+           } 
+        }
+    }
+   }  
+
+}
