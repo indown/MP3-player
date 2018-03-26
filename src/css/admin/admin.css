@@ -1,0 +1,73 @@
+ @font-face {
+            font-family: 'iconfont';  /* project id 573052 */
+            src: url('//at.alicdn.com/t/font_573052_zxkm079u14p4aemi.eot');
+            src: url('//at.alicdn.com/t/font_573052_zxkm079u14p4aemi.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_573052_zxkm079u14p4aemi.woff') format('woff'),
+            url('//at.alicdn.com/t/font_573052_zxkm079u14p4aemi.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_573052_zxkm079u14p4aemi.svg#iconfont') format('svg');
+        }
+        input{
+            font: inherit;  
+        }
+        .clearfix::after {
+            content:" ";
+            display:block;
+            clear:both;
+        }
+        *{
+            margin: 0;padding: 0;
+        }
+        li{list-style: none;}
+        body{background: #ddd;}
+        .all{width: 1218px;border: 1px solid #1883d7;margin: 80px auto;position: relative;}
+        .header{height: 50px;background: #fff;}
+        .header>.logo{display: inline-block;height: 20px;margin-top: 8px;position: relative;margin-left: 8px;}
+        .header>.logo>p{display: inline-block;font-size: 14px;line-height: 18px;position: absolute;left: 22px;top:3px;white-space:nowrap;}
+        .header>.logo>.logoBg{display: inline-block; width: 18px;height: 18px;background: url(../../img/media-go.png);
+        position: absolute;top: 2px;}
+        .play{height: 48px;background: #3e5574;}
+        .dataContent{height: 608px;background: #fff;display: flex;}
+        .dataContent>.mediaLibrary{ width: 222px;display: flex;flex-direction: column;border-right:1px solid #bfbfbf;position: relative}
+        .dataContent>.mediaLibrary>h3{color: #0b4187;background: #fbfbfb;height:34px;line-height: 34px;padding-left: 20px;
+        border-bottom: 1px solid #d8d8d8;}
+        .dataContent>.mediaLibrary>.mediaLibraryContent{flex:1;background: #f4f4f4;}
+        .dataContent>.mediaLibrary>.mediaLibraryContent ul{margin-left: 24px;margin-top: 38px;}
+        .dataContent>.mediaLibrary>.mediaLibraryContent li{font-size: 14px;color: #404040;padding: 4px;
+        border: 1px solid #f4f4f4; display: inline-block;border-radius: 4px;margin-right: 40px;}
+        .dataContent>.mediaLibrary>.mediaLibraryContent li.active{background: #d9d9d9;border: 1px solid #a7a7a7;}
+        
+        .dataContent>.mediaLibrary>.songInfo{background: #f4f4f4;}
+        .dataContent>.mediaLibrary>.songInfo>.songPic{width: 222px;height: 222px;padding: 4px;}
+        .dataContent>.mediaLibrary>.songInfo>.songPic>img{width: 218px;height: 218px;}
+        .dataContent>.mediaLibrary>.songInfo>.songForm>.form>.row{margin-bottom: 4px;}
+        .dataContent>.mediaLibrary>.songInfo>.songForm>.form>.row>label{margin: 0 4px 0 4px;}
+        .dataContent>.mediaLibrary>.songInfo>.songForm>.form>.row>input{width: 150px;}
+        .dataContent>.mediaLibrary>.songInfo>.songForm>.form>.row>button{width: 80px;height: 27px;font-size: 16px;margin-left: 20px;}
+        .dataContent>.mediaLibrary>.songInfo>.songForm>.form>.row.actions{height: 27px;}
+        .dataContent>.mediaLibrary>.songInfo .pickFiles{width: 80px;position: absolute;top:347px;right: 26px;height: 28px;}
+        .dataContent>.music{flex:1;background: #e2e2e2;}
+        .dataContent>.music>.musicWarper{margin: 0 6px 0 6px;}
+        .dataContent>.music h3{font-size: 16px;height: 30px;line-height: 30px;color: #363636;}
+        .dataContent>.music .musicData{height: 518px;border: 1px solid #bfbfbf;border-radius: 4px;background: #fefefe;}
+        .dataContent>.music .musicData>ul{padding: 6px 0 6px 0; border-bottom: 1px solid #cfcfcf;}
+        .dataContent>.music .musicData>ul>li{float: left;font-size: 12px;color: #606060; width: 24%;padding-left: 2px;
+        border-left: 1px solid #e6e6e6;line-height: 18px;}
+        .dataContent>.music .musicData .icon .iconfont{font-family:"iconfont" !important;font-size:100px;font-style:normal;-webkit-font-smoothing: antialiased;
+        -webkit-text-stroke-width: 0.2px;-moz-osx-font-smoothing: grayscale;}
+        .dataContent>.music .musicData>.icon{display: inline-block;width: 100%; height: 100%; opacity: 0.2; text-align: center;
+        padding-top:20%; }
+        .dataContent>.music .musicData>.icon>p{font-size: 18px;}
+        .dataContent>.music .musicData>.musicDataList>.songList>li{margin: 2px;border: 1px solid #fff;border-radius: 6px;
+        color: #7d7d7d;font-size: 14px;}
+        .dataContent>.music .musicData>.musicDataList{height:486px;overflow: auto;}
+        .dataContent>.music .musicData>.musicDataList>.songList>li:hover{margin: 2px;background: #e6eef7;color: #7d91bc;}
+        .dataContent>.music .musicData>.musicDataList>.songList>li.active{background: #e2ecf5;border: 1px solid #a3b4c5;}
+        .dataContent>.music .musicData>.musicDataList>.songList>li>span{display: inline-block;width: 230px;white-space: nowrap;
+        overflow: hidden;margin:0px 4px 0px 4px;}
+        .dataContent>.music .musicData>.musicDataList>.songList>li>.title{color: #404040;}
+        .dataContent>.music>.musicFooter{text-align: right;opacity: 0.6;position: relative;height: 58px;}
+        .dataContent>.music>.musicFooter>p{font-family: Georgia;font-size: 16px;padding-right:80px; line-height: 58px;}
+        .dataContent>.music>.musicFooter>span{background: url(../../img/walkman.png) no-repeat;background-size: cover;
+        display: inline-block;width: 52px;height: 30px;position: absolute;bottom:12px;;right: 20px;}
+        
+        

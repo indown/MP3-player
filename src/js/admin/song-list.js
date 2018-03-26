@@ -71,7 +71,6 @@
             this.avinit()
             this.getAllSongs()
             window.eventHub.on('create',(data)=>{
-                console.log(data)
                 this.model.data.songs.push(data)
                 this.view.render(this.model.data)
             })
@@ -99,7 +98,6 @@
         },
         getAllSongs(){
             return this.model.find().then(()=>{
-                console.log(this.model.data)
               this.view.render(this.model.data)
             })
         },
@@ -117,7 +115,6 @@
                         break
                     }
                 }
-                console.log(data)
                 window.eventHub.emit('select', JSON.parse(JSON.stringify(data)))
             })
         }

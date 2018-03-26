@@ -14,12 +14,6 @@
                 this.model.token = data
             })
             this.bindEvents(this.view.el)
-            
-            // window.eventHub.on('input',(data)=>{
-            //     console.log(data.target.files)
-            //     
-            // })
-            
         },
         qiniuInit(file,model){
             var config = {
@@ -34,14 +28,13 @@
             let resUrl
             var observer = {
                     next(res) {
-                        
+                        $('.spinnerWarper').addClass('active')
                     },
                     error(err) {
                         // ...
                     },
                     complete(res) {
                         resUrl = 'http://p3zwz04dp.bkt.clouddn.com/' + encodeURI(res.key)
-                        console.log(this)
                         model.songs.url=resUrl
                         window.eventHub.emit('upLoaderOver',JSON.parse(JSON.stringify(model.songs)))
                     }
@@ -61,7 +54,6 @@
             let file = event.target.files[0]
             jsmediatags.read(file, {
                     onSuccess:  (tag)=> {
-                        console.log(tag)
                         let {album,artist,title} = tag.tags
                         if( "picture" in tag.tags ) {
                             let image = tag.tags.picture;
@@ -108,7 +100,6 @@
         },
         bindEvents(input){
             $(input).find('#pickfiles').on('change',(input)=>{
-                console.log(1)
                 var objUrl = this.getObjectURL(input.target.files[0]);
                        $("#audio").attr("src", objUrl);
                         this.getTime();

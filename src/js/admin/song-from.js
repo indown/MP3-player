@@ -97,11 +97,9 @@
             mp3.set('img',data.img);
             return mp3.save().then((newmp3) =>{
               let {id, attributes} = newmp3
-              console.log(newmp3)
               this.data.id = newmp3.id
               window.eventHub.emit('create',JSON.parse(JSON.stringify(this.data)))
               this.data={}
-              console.log(this.data)
             }, (error) =>{
               console.error(error);
             });    
@@ -118,10 +116,10 @@
                 this.view.renderurl(data)
                 this.view.render(data)
                 this.model.data =data
+                $('.spinnerWarper').removeClass('active')
             })
             window.eventHub.on('select',(data)=>{
                 this.model.data = JSON.parse(JSON.stringify(data))
-                console.log(this.model.data)
                 this.view.render(this.model.data)
                 this.view.renderurl(this.model.data)
             })
@@ -138,7 +136,6 @@
                     
                 }else{
                     this.model.create(this.model.data)
-                    console.log(222)
                     this.view.reset()
                 }
                 
@@ -153,7 +150,7 @@
             this.model.data.title = $(elem).find('#title')[0].value
             this.model.data.url = $(elem).find('#url')[0].value
             this.model.data.img = $('#art')[0].src
-            // console.log(this.model.data)
+            
         },
         
         

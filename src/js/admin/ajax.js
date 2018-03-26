@@ -15,7 +15,7 @@
         xhr.onerror = function (e) {
             console.error(xhr.statusText);
         };
-        xhr.open('GET', 'http://47.91.156.35:7843/uploadToken', true);
+        xhr.open('GET', 'http://localhost:8888/uploadToken', true);
         xhr.send(null);
     }
 }
